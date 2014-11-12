@@ -17,3 +17,15 @@ r
 # or, use the builtin function
 r <- cor(launch$temperature, launch$distress_ct)
 r
+
+# create a regression function
+reg <- function(y, x) {
+    x <- as.matrix(x)
+    x <- cbind(Intercept=1, x)
+    solve(t(x) %*% x) %*% t(x) %*% y
+}
+
+# the Intercept and temperature values match a and b values
+reg(y=launch$distress_ct, x=launch[3])[,1]
+
+reg(y=launch$distress_ct, x=launch[3:5])[,1]

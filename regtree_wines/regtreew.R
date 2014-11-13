@@ -39,5 +39,3 @@ library(RWeka)
 m.m5p <- M5P(quality ~ ., data=wine_train)
 
 m.m5p
-
-summary(m.m5p)
